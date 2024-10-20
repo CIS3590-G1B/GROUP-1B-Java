@@ -1,0 +1,103 @@
+package com.thealgorithms.datastructures.trees;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.PriorityQueue;
+import java.util.Scanner;
+
+public class AddingtheTravellingSalesmanProblem {
+
+    // Class to represent a node in the priority queue
+    static class Node implements Comparable<Node> {
+
+        int currentCity;
+        int cost;
+        List<Integer> path;
+
+        // Constructor
+        public Node(int currentCity, int cost, List<Integer> path) {
+            this.currentCity = currentCity;
+            this.cost = cost;
+            this.path = new ArrayList<>(path);
+        }
+
+        // Compare nodes based on the cost (used by the priority queue)
+        @Override
+        public int compareTo(Node other) {
+            return Integer.compare(this.cost, other.cost);
+        }
+    }
+
+    // Function to solve TSP using Best-First Search (Greedy Heuristic)
+    public static void tspBestFirstSearch(int[][] dist) {
+        int n = dist.length;
+        int start = 0;  // Starting from city 0
+
+        // Priority queue to store the current path and cost
+        PriorityQueue<Node> pq = new PriorityQueue<>();
+        List<Integer> initialPath = new ArrayList<>();
+        initialPath.add(start);
+        pq.add(new Node(start, 0, initialPath));
+
+        int bestCost = Integer.MAX_VALUE;
+        List<Integer> bestPath = null;
+
+        // Best-first search algorithm
+        while (!pq.isEmpty()) {
+            Node currentNode = pq.poll();
+            int currentCity = currentNode.currentCity;
+            int currentCost = currentNode.cost;
+            List<Integer> currentPath = currentNode.path;
+
+            // If all cities are visited, check the complete tour by returning to the start
+            if (currentPath.size() == n) {
+                int totalCost = currentCost + dist[currentCity][start];  // Return to the start city
+                if (totalCost < bestCost) {
+                    bestCost = totalCost;
+                    bestPath = new ArrayList<>(currentPath);
+                    bestPath.add(start);  // Complete the tour
+                }
+                continue;
+            }
+
+            // Expand to all unvisited cities
+            for (int nextCity = 0; nextCity < n; nextCity++) {
+                if (!currentPath.contains(nextCity)) {  // Only consider unvisited cities
+                    List<Integer> newPath = new ArrayList<>(currentPath);
+                    newPath.add(nextCity);
+                    int newCost = currentCost + dist[currentCity][nextCity];
+                    pq.add(new Node(nextCity, newCost, newPath));
+                }
+            }
+        }
+
+        // Print the result
+        System.out.println("The minimum cost of the tour (BFS Approximation) is: " + bestCost);
+        System.out.println("The best path found is: " + bestPath);
+    }
+
+    // Function to input the number of cities and the distance matrix
+    public static int[][] inputCities(Scanner sc) {
+        System.out.print("Enter the number of cities: ");
+        int n = sc.nextInt();
+        int[][] dist = new int[n][n];
+        System.out.println("Enter the distance matrix row by row (space separated):");
+        for (int i = 0; i < n; i++) {
+            System.out.print("Distance from city " + i + ": ");
+            for (int j = 0; j < n; j++) {
+                dist[i][j] = sc.nextInt();
+            }
+        }
+        return dist;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        // Input the cities and their distances
+        int[][] dist = inputCities(sc);
+
+        // Find the minimum cost of the tour
+        tspBestFirstSearch(dist);
+    }
+}
