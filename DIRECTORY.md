@@ -689,7 +689,7 @@
               * [QuickSortLinkedListTest](https://github.com/TheAlgorithms/Java/blob/master/src/test/java/com/thealgorithms/datastructures/lists/QuickSortLinkedListTest.java)
               * [ReverseKGroupTest](https://github.com/TheAlgorithms/Java/blob/master/src/test/java/com/thealgorithms/datastructures/lists/ReverseKGroupTest.java)
               * [RotateSinglyLinkedListsTest](https://github.com/TheAlgorithms/Java/blob/master/src/test/java/com/thealgorithms/datastructures/lists/RotateSinglyLinkedListsTest.java)
-              * [ShufflingAlgorithm-5635](https://github.com/TheAlgorithms/Java/blob/master/src/test/java/com/thealgorithms/datastructures/lists/ShufflingAlgorithm-5635.java)
+              * [ShufflingAlgorithm-5635Test](https://github.com/TheAlgorithms/Java/blob/master/src/test/java/com/thealgorithms/datastructures/lists/ShufflingAlgorithm-5635Test.java)
               * [SinglyLinkedListTest](https://github.com/TheAlgorithms/Java/blob/master/src/test/java/com/thealgorithms/datastructures/lists/SinglyLinkedListTest.java)
               * [SkipListTest](https://github.com/TheAlgorithms/Java/blob/master/src/test/java/com/thealgorithms/datastructures/lists/SkipListTest.java)
               * [SortedLinkedListTest](https://github.com/TheAlgorithms/Java/blob/master/src/test/java/com/thealgorithms/datastructures/lists/SortedLinkedListTest.java)
