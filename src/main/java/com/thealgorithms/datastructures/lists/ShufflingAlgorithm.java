@@ -29,7 +29,7 @@ class ShufflingAlgorithm {
 
     // Main method for testing the Fisher-Yates shuffle.
     public static void main(String[] args) {
-        Object[] arr = {1, "write", "java", 5};
+        Object[] arr = {1, "write", "java", 5, 8, 10, "black", "gray", "red"};
 
         System.out.println("Original array:");
         printArray(arr);
