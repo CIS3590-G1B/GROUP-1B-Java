@@ -4,6 +4,27 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.PriorityQueue;
 
+/**
+ *
+ *
+ * <h1>Binary Search Tree (BFS Implementation)</h1>
+ *
+ * This code demonstrates a Binary Search Tree (BST) traversal using the Breadth-First Search (BFS) approach.
+ * Unlike a recursive or depth-first approach, BFS examines nodes level by level, making it an ideal way to view each level of a BST sequentially.
+ * 
+ * A Binary Search Tree is a binary tree that satisfies three primary properties:
+ * - The left child of a node is less than the node itself.
+ * - The right child of a node is greater than the node.
+ * - Both the left and right subtrees must also be binary search trees.
+ *
+ * <p>
+ * In this code, public functions are implemented as methods accessible to the user, while private methods handle internal processing.
+ * By applying BFS, this code traverses the BST layer by layer, using a queue to manage each level's nodes as it moves from the root down to the lowest level.
+ *  @author [Santiago Carballo](<a href="https://github.com/santycarbahol">git-santycarbahol</a>)
+
+ */
+
+
 public class AddingtheTravellingSalesmanProblem {
 
     // Class to represent a node in the priority queue
