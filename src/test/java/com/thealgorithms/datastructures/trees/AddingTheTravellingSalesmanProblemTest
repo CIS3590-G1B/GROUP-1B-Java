@@ -1,0 +1,64 @@
+package com.thealgorithms.datastructures.trees;
+
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
+public class AddingTheTravellingSalesmanProblemTest {
+
+    @Test
+    public void testBasicSuccessCase() {
+        int[][] dist = {
+            {0, 10, 15, 20},
+            {10, 0, 35, 25},
+            {15, 35, 0, 30},
+            {20, 25, 30, 0}
+        };
+        
+        int expectedCost = 80; // Sample expected cost
+        int result = AddingTheTravellingSalesmanProblem.tspBestFirstSearch(dist);
+        Assertions.assertEquals(expectedCost, result);
+    }
+
+    @Test1
+    public void testHighCostsFailureCase() {
+        int[][] dist = {
+            {0, 9999, 9999, 9999},
+            {9999, 0, 9999, 9999},
+            {9999, 9999, 0, 9999},
+            {9999, 9999, 9999, 0}
+        };
+
+        int expectedCost = Integer.MAX_VALUE;
+        int result = AddingTheTravellingSalesmanProblem.tspBestFirstSearch(dist);
+        Assertions.assertEquals(expectedCost, result);
+    }
+
+    @Test2
+    public void testLargerMatrixSuccessCase() {
+        int[][] dist = {
+            {0, 10, 15, 20, 25},
+            {10, 0, 35, 25, 30},
+            {15, 35, 0, 30, 20},
+            {20, 25, 30, 0, 15},
+            {25, 30, 20, 15, 0}
+        };
+
+        int expectedCost = 105; // Sample expected cost for the 5-city tour
+        int result = AddingTheTravellingSalesmanProblem.tspBestFirstSearch(dist);
+        Assertions.assertEquals(expectedCost, result);
+    }
+
+    @Test3
+    public void testZeroDistancesCase() {
+        int[][] dist = {
+            {0, 0, 0, 0},
+            {0, 0, 0, 0},
+            {0, 0, 0, 0},
+            {0, 0, 0, 0}
+        };
+
+        int expectedCost = 0;
+        int result = AddingTheTravellingSalesmanProblem.tspBestFirstSearch(dist);
+        Assertions.assertEquals(expectedCost, result);
+    }
+}

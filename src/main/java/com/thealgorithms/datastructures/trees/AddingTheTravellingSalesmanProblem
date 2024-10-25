@@ -3,13 +3,11 @@ package com.thealgorithms.datastructures.trees;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.PriorityQueue;
-import java.util.Scanner;
 
 public class AddingtheTravellingSalesmanProblem {
 
     // Class to represent a node in the priority queue
     static class Node implements Comparable<Node> {
-
         int currentCity;
         int cost;
         List<Integer> path;
@@ -76,28 +74,33 @@ public class AddingtheTravellingSalesmanProblem {
         System.out.println("The best path found is: " + bestPath);
     }
 
-    // Function to input the number of cities and the distance matrix
-    public static int[][] inputCities(Scanner sc) {
-        System.out.print("Enter the number of cities: ");
-        int n = sc.nextInt();
-        int[][] dist = new int[n][n];
-        System.out.println("Enter the distance matrix row by row (space separated):");
-        for (int i = 0; i < n; i++) {
+    // Function to provide a default distance matrix
+    public static int[][] getDefaultDistanceMatrix() {
+        int[][] dist = {
+            {0, 10, 20, 30},
+            {10, 0, 15, 25},
+            {20, 15, 0, 35},
+            {30, 25, 35, 0}
+        };
+
+        System.out.println("Using default distance matrix:");
+        for (int i = 0; i < dist.length; i++) {
             System.out.print("Distance from city " + i + ": ");
-            for (int j = 0; j < n; j++) {
-                dist[i][j] = sc.nextInt();
+            for (int j = 0; j < dist[i].length; j++) {
+                System.out.print(dist[i][j] + " ");
             }
+            System.out.println();
         }
+
         return dist;
     }
 
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-
-        // Input the cities and their distances
-        int[][] dist = inputCities(sc);
+        // Use the default distance matrix
+        int[][] dist = getDefaultDistanceMatrix();
 
         // Find the minimum cost of the tour
         tspBestFirstSearch(dist);
     }
 }
+
