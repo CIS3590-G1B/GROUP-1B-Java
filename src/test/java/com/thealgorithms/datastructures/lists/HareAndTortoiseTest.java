@@ -1,27 +1,56 @@
 package com.thealgorithms.datastructures.lists;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
 import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
-/**
- * Tests for the HareAndTortoise class that implements Floyd's Cycle Detection algorithm.
- */
 public class HareAndTortoiseTest {
 
     @Test
-    public void testHasCycle() {
-        // Case 1: Creating a linked list with a cycle
-        HareAndTortoise.ListNode head1 = new HareAndTortoise.ListNode(1);
-        HareAndTortoise.ListNode node2 = new HareAndTortoise.ListNode(2);
-        head1.next = node2;
-        node2.next = head1;  // Creates a cycle
-        assertTrue(HareAndTortoise.hasCycle(head1), "List should detect a cycle.");
+    public void testEmptyList() {
+        HareAndTortoise.ListNode head = null;
+        assertFalse(HareAndTortoise.hasCycle(head));
+    }
 
-        // Case 2: Creating a linked list without a cycle
-        HareAndTortoise.ListNode head2 = new HareAndTortoise.ListNode(1);
-        head2.next = new HareAndTortoise.ListNode(2);
-        assertFalse(HareAndTortoise.hasCycle(head2), "List should not detect any cycle.");
+    @Test
+    public void testSingleNoCycle() {
+        HareAndTortoise.ListNode head = new HareAndTortoise.ListNode(1);
+        assertFalse(HareAndTortoise.hasCycle(head));
+    }
+
+    @Test
+    public void testTwoNodesNoCycle() {
+        HareAndTortoise.ListNode head = new HareAndTortoise.ListNode(1);
+        head.next = new HareAndTortoise.ListNode(2);
+        assertFalse(HareAndTortoise.hasCycle(head));
+    }
+
+    @Test
+    public void testCycleInTwoNodes() {
+        HareAndTortoise.ListNode head = new HareAndTortoise.ListNode(1);
+        HareAndTortoise.ListNode second = new HareAndTortoise.ListNode(2);
+        head.next = second;
+        second.next = head;
+        assertTrue(HareAndTortoise.hasCycle(head));
+    }
+
+    @Test
+    public void testCycleInMiddle() {
+        HareAndTortoise.ListNode head = new HareAndTortoise.ListNode(1);
+        HareAndTortoise.ListNode second = new HareAndTortoise.ListNode(2);
+        HareAndTortoise.ListNode third = new HareAndTortoise.ListNode(3);
+        head.next = second;
+        second.next = third;
+        third.next = second; // cycle back to second
+        assertTrue(HareAndTortoise.hasCycle(head));
+    }
+
+    @Test
+    public void testNoCycle() {
+        HareAndTortoise.ListNode head = new HareAndTortoise.ListNode(1);
+        HareAndTortoise.ListNode second = new HareAndTortoise.ListNode(2);
+        HareAndTortoise.ListNode third = new HareAndTortoise.ListNode(3);
+        head.next = second;
+        second.next = third;
+        assertFalse(HareAndTortoise.hasCycle(head));
     }
 }
