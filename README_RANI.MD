@@ -87,9 +87,9 @@ Issue #7.2: Feature Development
 - Challenges:
   - Special handling was required for cases with empty or single-element arrays to prevent unnecessary operations.
 
-Key Commit: feat: implemented Fisher-Yates shuffle algorithm in Java
+  Key Commit: feat: implemented Fisher-Yates shuffle algorithm in Java
 
-Next Steps: Continue refining edge case handling and optimize performance for large datasets.
+  Next Steps: Continue refining edge case handling and optimize performance for large datasets.
 
 
 **Milestone 2: Week 2 - Testing and Validation**
@@ -106,9 +106,9 @@ Issue #7.3: Testing and Validation
 Challenges:
   - Addressed challenges with random behavior verification and handling of duplicate elements.
 
-Key Commit: test: added test cases for Fisher-Yates shuffle including edge cases
+  Key Commit: test: added test cases for Fisher-Yates shuffle including edge cases
 
-Next Steps: Perform additional stress tests to ensure the algorithm performs well with large datasets.
+  Next Steps: Perform additional stress tests to ensure the algorithm performs well with large datasets.
 
 
 **Milestone 3: Week 3 - Pull Request Preparation**
@@ -125,9 +125,9 @@ Issue #7.4: Pull Request Submission
 - Challenges:
   - Ensuring all test cases passed consistently in various environments, with attention to randomness validation.
 
-Key Commit: chore: prepared pull request for Fisher-Yates shuffle algorithm and linked issues
+  Key Commit: chore: prepared pull request for Fisher-Yates shuffle algorithm and linked issues
 
-Next Steps: Complete final testing, including performance tests, and gather peer feedback for any necessary refinements.
+  Next Steps: Complete final testing, including performance tests, and gather peer feedback for any necessary refinements.
 ---
 
 ## Pull Request Overview
