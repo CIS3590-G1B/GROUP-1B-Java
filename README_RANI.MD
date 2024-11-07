@@ -129,7 +129,7 @@ Issue #7.4: Pull Request Submission
 - Challenges:
   - Ensuring all test cases passed consistently in various environments, with attention to randomness validation.
 
-  **Key Commit**: chore: prepared pull request for Fisher-Yates shuffle algorithm and linked issues
+ **Key Commit**: chore: prepared pull request for Fisher-Yates shuffle algorithm and linked issues
 
  **Next Steps**: Complete final testing, including performance tests, and gather peer feedback for any necessary refinements.
 
