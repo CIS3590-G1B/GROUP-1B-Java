@@ -56,7 +56,7 @@ Each commit will contain detailed messages to explain the progress made on the f
 
 ---
 
-**Testing and Validation**
+## Testing and Validation
 
 The implementation has been tested to ensure accurate and unbiased shuffling across various cases.
 
